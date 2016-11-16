@@ -1,0 +1,23 @@
+<div [style.padding] = "padding ? 40 : 0">
+    <h3>{{ titulo }}</h3>
+    <div *ngIf = "listaDeEstudiantes().length > 0">
+        <ul>
+            <li *ngFor = "let estudiante of listaDeEstudiantes(); let i = index">
+                <span (click) = "clickEnEstudiante($event)">{{i}} - {{estudiante}}</span>
+            </li>
+        </ul>
+        <!-- enlace de datos de propiedad o componente [] --> 
+        <!--img [src] = "imgUrl" [class.img-rounded] = "redondeadas"/-->
+
+        <!-- enlace de datos bidireccional [()] -->
+        <input type="text" [(ngModel)] = "titulo"/>
+
+        <!-- enlace de datos de eventos () -->
+        <!--button (click) = "alerta()">Test</button-->
+        <button (click) = "titulo = ''">Borrar</button>
+    </div>
+    <div [hidden] = "listaDeEstudiantes().length > 0">
+        <span>No hay ningun estudiante</span>
+    </div>
+
+</div>
